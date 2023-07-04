@@ -9,17 +9,19 @@ paths:
   /user:
     get:
       summary: getauthdata
+      description: getauthdata
       operationId: getauthdata
       responses:
         '200':
-          description: 
+          description: ''
   /user/followers:
     get:
       summary: getauthfollowers
+      description: getauthfollowers
       operationId: getauthfollowers
       responses:
         '200':
-          description: 
+          description: ''
 components:
   securitySchemes:
     apiKeyHeader:
