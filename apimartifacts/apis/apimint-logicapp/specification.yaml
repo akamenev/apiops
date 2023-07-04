@@ -1,0 +1,63 @@
+openapi: 3.0.1
+info:
+  title: apimint-logicapp
+  description: Azure Logic App.
+  version: '1.0'
+servers:
+  - url: https://apim-lab-ankamene.azure-api.net/apint-logicapp
+paths:
+  /manual/paths/invoke:
+    post:
+      summary: manual-invoke
+      description: Trigger a run of the logic app.
+      operationId: manual-invoke
+      requestBody:
+        description: The request body.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request-manual'
+            example:
+              completed: true
+              id: string
+              title: string
+      responses:
+        '200':
+          description: The Logic App Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManualPathsInvokePost200ApplicationJsonResponse'
+        '500':
+          description: The Logic App Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManualPathsInvokePost500ApplicationJsonResponse'
+components:
+  schemas:
+    request-manual:
+      type: object
+      properties:
+        completed:
+          type: boolean
+        id:
+          type: string
+        title:
+          type: string
+    ManualPathsInvokePost200ApplicationJsonResponse:
+      type: object
+    ManualPathsInvokePost500ApplicationJsonResponse:
+      type: object
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

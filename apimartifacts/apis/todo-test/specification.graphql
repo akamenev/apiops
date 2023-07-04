@@ -1,0 +1,11 @@
+type Query {
+    readItem(id: String) : item
+}
+
+type item {
+    id: String!
+    category: String!
+    name: String!
+    description: String!
+    isComplete: Boolean!
+}

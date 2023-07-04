@@ -1,0 +1,88 @@
+openapi: 3.0.1
+info:
+  title: oapi-la-consumption
+  description: Azure Logic App.
+  version: '1.0'
+servers:
+  - url: https://apim-lab-ankamene.azure-api.net/oapi-la-consumption
+paths:
+  /manual/paths/invoke:
+    post:
+      summary: manual-invoke
+      description: Trigger a run of the logic app.
+      operationId: manual-invoke
+      parameters:
+        - name: api-version
+          in: query
+          description: The service API version.
+          required: true
+          schema:
+            type: string
+        - name: sp
+          in: query
+          description: The permissions; generally 'read' or 'write'.
+          required: true
+          schema:
+            type: string
+        - name: sv
+          in: query
+          description: The version number of the query parameters.
+          required: true
+          schema:
+            type: string
+        - name: sig
+          in: query
+          description: The SHA 256 hash of the entire request URI with an internal key.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The request body.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request-manual'
+            example:
+              completed: true
+              id: string
+              title: string
+      responses:
+        '200':
+          description: The Logic App Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManualPathsInvokePost200ApplicationJsonResponse'
+        '500':
+          description: The Logic App Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManualPathsInvokePost500ApplicationJsonResponse'
+components:
+  schemas:
+    request-manual:
+      type: object
+      properties:
+        completed:
+          type: boolean
+        id:
+          type: string
+        title:
+          type: string
+    ManualPathsInvokePost200ApplicationJsonResponse:
+      type: object
+    ManualPathsInvokePost500ApplicationJsonResponse:
+      type: object
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
