@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "description": "apimint",
+    "protocol": "http",
+    "resourceId": "https://management.azure.com/subscriptions/04e56806-9aef-46cd-b499-ce6508f2698b/resourceGroups/logic-apps/providers/Microsoft.Logic/workflows/apimint",
+    "url": "https://prod-75.eastus.logic.azure.com/workflows/c9559d33172f4f1babb16abfbe34eb78/triggers"
+  }
+}

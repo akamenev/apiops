@@ -1,0 +1,35 @@
+openapi: 3.0.1
+info:
+  title: githubuser
+  description: ''
+  version: '1.0'
+servers:
+  - url: https://apim-lab-ankamene.azure-api.net/githubuser
+paths:
+  /user:
+    get:
+      summary: getauthdata
+      operationId: getauthdata
+      responses:
+        '200':
+          description: 
+  /user/followers:
+    get:
+      summary: getauthfollowers
+      operationId: getauthfollowers
+      responses:
+        '200':
+          description: 
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "description": "app-api-ehwoak4nntvcs",
+    "protocol": "http",
+    "resourceId": "https://management.azure.com/subscriptions/04e56806-9aef-46cd-b499-ce6508f2698b/resourceGroups/rg-sap-odata-ankamene/providers/Microsoft.Web/sites/app-api-ehwoak4nntvcs",
+    "url": "https://app-api-ehwoak4nntvcs.azurewebsites.net"
+  }
+}
